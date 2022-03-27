@@ -15,12 +15,12 @@ namespace DAL.Entities
 
         public int GameId { get; set; }
 
-        public int UserId { get; set; }
+        public int RegisteredUserId { get; set; }
 
         [ForeignKey("GameId")]
         public Game Game { get; set; }
 
-        [ForeignKey("UserId")]
-        public User User { get; set; }
+        [ForeignKey("RegisteredUserId")]
+        public RegisteredUser RegisteredUser { get; set; }
     }
 }

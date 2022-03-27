@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DAL.Entities
 {
-    public class User : BaseEntity
+    public class RegisteredUser : BaseEntity
     {
         public string UserName { get; set; }
 
