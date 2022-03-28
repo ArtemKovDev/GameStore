@@ -1,4 +1,5 @@
-﻿using DAL.Entities;
+﻿using DAL.Context;
+using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,7 +13,7 @@ namespace DAL.Repositories
     public class CommentRepository
         : BaseRepository<Comment>, ICommentRepository
     {
-        public CommentRepository(DbContext context) 
+        public CommentRepository(ApplicationDbContext context) 
             : base(context)
         {
 

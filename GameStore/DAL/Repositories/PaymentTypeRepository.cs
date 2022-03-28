@@ -1,4 +1,5 @@
-﻿using DAL.Entities;
+﻿using DAL.Context;
+using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,7 +13,7 @@ namespace DAL.Repositories
     public class PaymentTypeRepository
         : BaseRepository<PaymentType>, IPaymentTypeRepository
     {
-        public PaymentTypeRepository(DbContext context) 
+        public PaymentTypeRepository(ApplicationDbContext context) 
             : base(context)
         {
 

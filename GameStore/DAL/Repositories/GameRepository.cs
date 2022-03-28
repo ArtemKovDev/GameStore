@@ -1,4 +1,5 @@
-﻿using DAL.Entities;
+﻿using DAL.Context;
+using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,7 +13,7 @@ namespace DAL.Repositories
     public class GameRepository
         : BaseRepository<Game>, IGameRepository
     {
-        public GameRepository(DbContext context) 
+        public GameRepository(ApplicationDbContext context) 
             : base(context)
         {
 
