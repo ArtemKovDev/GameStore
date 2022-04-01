@@ -28,14 +28,7 @@ namespace DAL.Infrastructure
                 options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<AppIdentityDbContext>();
 
-            services.AddScoped<ICartLineRepository, CartLineRepository>();
-            services.AddScoped<ICommentRepository, CommentRepository>();
-            services.AddScoped<IGameGenreRepository, GameGenreRepository>();
-            services.AddScoped<IGameRepository, GameRepository>();
-            services.AddScoped<IGenreRepository, GenreRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IPaymentTypeRepository, PaymentTypeRepository>();
-            services.AddScoped<IRegisteredUserRepository, RegisteredUserRepository>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
