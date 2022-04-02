@@ -15,7 +15,5 @@ namespace BLL.Models
         public string LastName { get; set; }
 
         public string ImageUrl { get; set; }
-
-        public ICollection<int> CommentIds { get; set; }
     }
 }

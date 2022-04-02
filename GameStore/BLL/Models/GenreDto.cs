@@ -11,7 +11,5 @@ namespace BLL.Models
         public string Name { get; set; }
 
         public int? ParentId { get; set; }
-
-        public ICollection<int> GameGenreIds { get; set; }
     }
 }

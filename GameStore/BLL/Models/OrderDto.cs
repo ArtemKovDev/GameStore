@@ -16,10 +16,8 @@ namespace BLL.Models
 
         public string Phone { get; set; }
 
-        public int PaymentTypeId { get; set; }
+        public int? PaymentTypeId { get; set; }
 
         public string Comments { get; set; }
-
-        public ICollection<int> CartLineIds { get; set; }
     }
 }

@@ -14,8 +14,8 @@ namespace BLL.Models
 
         public int? ParentId { get; set; }
 
-        public int GameId { get; set; }
+        public int? GameId { get; set; }
 
-        public int RegisteredUserId { get; set; }
+        public int? RegisteredUserId { get; set; }
     }
 }

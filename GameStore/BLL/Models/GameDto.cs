@@ -15,11 +15,5 @@ namespace BLL.Models
         public decimal Price { get; set; }
 
         public string ImageUrl { get; set; }
-
-        public ICollection<int> GameGenreIds { get; set; }
-
-        public ICollection<int> CommentIds { get; set; }
-
-        public ICollection<int> CartLineIds { get; set; }
     }
 }
