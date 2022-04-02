@@ -6,10 +6,10 @@ namespace BLL.Models
 {
     public class GenreDto
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public int? ParentId { get; set; }
+        public int ParentId { get; set; }
     }
 }

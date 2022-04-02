@@ -6,7 +6,7 @@ namespace BLL.Models
 {
     public class OrderDto
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         public string FirstName { get; set; }
 
@@ -16,7 +16,7 @@ namespace BLL.Models
 
         public string Phone { get; set; }
 
-        public int? PaymentTypeId { get; set; }
+        public int PaymentTypeId { get; set; }
 
         public string Comments { get; set; }
     }

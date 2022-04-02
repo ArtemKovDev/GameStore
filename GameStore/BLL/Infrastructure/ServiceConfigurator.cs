@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using BLL.Interfaces;
+using BLL.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,8 @@ namespace BLL.Infrastructure
         public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             DAL.Infrastructure.ServiceConfigurator.ConfigureServices(services, configuration);
+
+            services.AddScoped<IGenreService, GenreService>();
         }
     }
 }

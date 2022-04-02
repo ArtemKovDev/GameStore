@@ -55,7 +55,7 @@ namespace BLL.Services
 
         public async Task UpdateAsync(GenreDto model)
         {
-            if (!model.Id.HasValue || model.Name == "")
+            if (model.Name == "")
             {
                 throw new ServiceException(string.Join(';', "Model is not valid"));
             }
