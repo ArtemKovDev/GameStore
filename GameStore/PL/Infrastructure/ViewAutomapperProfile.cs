@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BLL.Models;
+using PL.ViewModels.Games;
 using PL.ViewModels.Genres;
 
 namespace PL.Infrastructure
@@ -10,6 +11,9 @@ namespace PL.Infrastructure
         {
             CreateMap<GenreAddModel, GenreDto>();
             CreateMap<GenreUpdateModel, GenreDto>();
+
+            CreateMap<GameAddModel, GameDto>();
+            CreateMap<GameUpdateModel, GameDto>();
         }
     }
 }

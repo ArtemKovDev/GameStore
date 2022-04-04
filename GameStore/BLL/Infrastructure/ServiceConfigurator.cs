@@ -15,6 +15,8 @@ namespace BLL.Infrastructure
             DAL.Infrastructure.ServiceConfigurator.ConfigureServices(services, configuration);
 
             services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<IGameService, GameService>();
+            services.AddScoped<IGameGenreService, GameGenreService>();
         }
     }
 }

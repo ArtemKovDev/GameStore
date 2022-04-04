@@ -18,5 +18,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Games\" />
+    <Folder Include="wwwroot\Images\Avatars\" />
+  </ItemGroup>
+
 
 </Project>
