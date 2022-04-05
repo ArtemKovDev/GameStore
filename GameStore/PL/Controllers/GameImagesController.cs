@@ -17,9 +17,9 @@ namespace PL.Controllers
     [ModelStateActionFilter]
     [Route("api/[controller]")]
     [ApiController]
-    public class ImagesController : ControllerBase
+    public class GameImagesController : ControllerBase
     {
-        [HttpPost("game")]
+        [HttpPost("upload")]
         public IActionResult UploadGameImage(IFormFile file)
         {
             var folderName = Path.Combine("wwwroot", "Images\\Games");
@@ -32,7 +32,7 @@ namespace PL.Controllers
 
                 if (ext == ".jpg" || ext == ".jpeg")
                 {
-                    fileName = new Guid().ToString() + ext;
+                    fileName = Guid.NewGuid().ToString() + ext;
 
                     var fullPath = Path.Combine(pathToSave, fileName);
                     var imageUrl = Path.Combine("Images\\Games", fileName);
@@ -48,6 +48,24 @@ namespace PL.Controllers
                 {
                     return BadRequest();
                 }
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpDelete("delete/{imageUrl}")]
+        public IActionResult Delete(string imageUrl)
+        {
+            var folderName = Path.Combine("wwwroot", imageUrl);
+            var pathToDelete = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+            if (System.IO.File.Exists(pathToDelete))
+            {
+                System.IO.File.Delete(pathToDelete);
+
+                return Ok();
             }
             else
             {

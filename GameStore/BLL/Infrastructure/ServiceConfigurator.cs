@@ -17,6 +17,9 @@ namespace BLL.Infrastructure
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IGameService, GameService>();
             services.AddScoped<IGameGenreService, GameGenreService>();
+            services.AddScoped<IPaymentTypeService, PaymentTypeService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<ICartLineService, CartLineService>();
         }
     }
 }
