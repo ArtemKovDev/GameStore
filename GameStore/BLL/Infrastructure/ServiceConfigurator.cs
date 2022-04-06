@@ -20,6 +20,10 @@ namespace BLL.Infrastructure
             services.AddScoped<IPaymentTypeService, PaymentTypeService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<ICartLineService, CartLineService>();
+            services.AddScoped<ICommentService, CommentService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IRegisteredUserService, RegisteredUserService>();
         }
     }
 }
