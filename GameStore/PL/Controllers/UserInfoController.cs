@@ -2,7 +2,6 @@
 using BLL.Interfaces;
 using BLL.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
 using PL.ViewModels.Identity;
@@ -23,7 +22,7 @@ namespace PL.Controllers
         private readonly IRoleService _roleService;
         private readonly IMapper _mapper;
 
-        public UserInfoController(IRegisteredUserService registeredUserService, 
+        public UserInfoController(IRegisteredUserService registeredUserService,
             IRoleService roleService, IMapper mapper)
         {
             _registeredUserService = registeredUserService;

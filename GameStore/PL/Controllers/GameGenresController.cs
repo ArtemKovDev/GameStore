@@ -2,7 +2,6 @@
 using BLL.Interfaces;
 using BLL.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
 using PL.ViewModels.GameGenres;

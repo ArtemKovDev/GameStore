@@ -2,10 +2,7 @@
 using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repositories
@@ -13,7 +10,7 @@ namespace DAL.Repositories
     public class GenreRepository
         : BaseRepository<Genre>, IGenreRepository
     {
-        public GenreRepository(ApplicationDbContext context) 
+        public GenreRepository(ApplicationDbContext context)
             : base(context)
         {
 

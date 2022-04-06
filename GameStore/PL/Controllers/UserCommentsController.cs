@@ -2,10 +2,8 @@
 using BLL.Interfaces;
 using BLL.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
-using PL.ViewModels.Comments;
 using PL.ViewModels.UserComments;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +21,7 @@ namespace PL.Controllers
         private readonly IRegisteredUserService _registeredUserService;
         private readonly IMapper _mapper;
 
-        public UserCommentsController(ICommentService commentService, 
+        public UserCommentsController(ICommentService commentService,
             IRegisteredUserService registeredUserService,
             IMapper mapper)
         {

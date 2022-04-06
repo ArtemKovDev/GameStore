@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Services
@@ -37,7 +36,7 @@ namespace BLL.Services
             if (userRoles.Any())
             {
                 await _userManager.RemoveFromRolesAsync(user, userRoles.ToArray());
-            }   
+            }
 
             var isRoleExist = _roleManager.Roles.Select(r => r.Name).ToList().Contains(userRole.Role, StringComparer.OrdinalIgnoreCase);
 

@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DAL.Context
 {
@@ -15,11 +13,11 @@ namespace DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
+
             string adminId = Guid.NewGuid().ToString();
 
-            string userRoleId = Guid.NewGuid().ToString();           
-            string managerRoleId = Guid.NewGuid().ToString();          
+            string userRoleId = Guid.NewGuid().ToString();
+            string managerRoleId = Guid.NewGuid().ToString();
             string adminRoleId = Guid.NewGuid().ToString();
 
             modelBuilder.Entity<IdentityRole>().HasData(new[]

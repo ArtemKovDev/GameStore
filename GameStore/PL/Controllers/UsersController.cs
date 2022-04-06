@@ -1,10 +1,7 @@
-﻿using AutoMapper;
-using BLL.Interfaces;
+﻿using BLL.Interfaces;
 using BLL.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
-using PL.ViewModels.Identity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,7 +14,7 @@ namespace PL.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IRegisteredUserService _registeredUserService;
-        
+
         public UsersController(IRegisteredUserService registeredUserService)
         {
             _registeredUserService = registeredUserService;

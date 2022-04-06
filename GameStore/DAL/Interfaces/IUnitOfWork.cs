@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface IUnitOfWork 
+    public interface IUnitOfWork
     {
         ICartLineRepository CartLineRepository { get; }
 
@@ -22,7 +19,7 @@ namespace DAL.Interfaces
         IPaymentTypeRepository PaymentTypeRepository { get; }
 
         IRegisteredUserRepository RegisteredUserRepository { get; }
-     
+
         Task<int> SaveAsync();
     }
 }

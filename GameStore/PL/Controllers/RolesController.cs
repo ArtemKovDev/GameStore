@@ -2,8 +2,6 @@
 using BLL.Interfaces;
 using BLL.Models.Identity;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
 using PL.ViewModels.Identity;

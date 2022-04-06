@@ -2,10 +2,7 @@
 using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repositories
@@ -13,7 +10,7 @@ namespace DAL.Repositories
     public class GameRepository
         : BaseRepository<Game>, IGameRepository
     {
-        public GameRepository(ApplicationDbContext context) 
+        public GameRepository(ApplicationDbContext context)
             : base(context)
         {
 

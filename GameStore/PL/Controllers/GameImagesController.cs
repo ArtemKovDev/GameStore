@@ -1,16 +1,10 @@
-﻿using AutoMapper;
-using BLL.Interfaces;
-using BLL.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
-using PL.ViewModels.Games;
 using System;
 using System.IO;
-using System.Linq;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 
 namespace PL.Controllers
 {
