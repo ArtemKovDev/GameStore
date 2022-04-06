@@ -19,5 +19,19 @@ namespace DAL.Context
         public DbSet<CartLine> CartLines { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<PaymentType> PaymentTypes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<RegisteredUser>().HasData(new RegisteredUser()
+            {
+                Id = 1,
+                UserName = "admin@gmail.com",
+                FirstName = "Admin",
+                LastName = "First",
+                ImageUrl = null
+            });
+        }
     }
 }

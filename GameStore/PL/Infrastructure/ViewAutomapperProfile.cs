@@ -9,6 +9,7 @@ using PL.ViewModels.Genres;
 using PL.ViewModels.Identity;
 using PL.ViewModels.Orders;
 using PL.ViewModels.PaymentTypes;
+using PL.ViewModels.UserComments;
 
 namespace PL.Infrastructure
 {
@@ -36,6 +37,9 @@ namespace PL.Infrastructure
 
             CreateMap<CommentAddModel, CommentDto>();
             CreateMap<CommentUpdateModel, CommentDto>();
+
+            CreateMap<UserCommentAddModel, CommentDto>();
+            CreateMap<UserCommentUpdateModel, CommentDto>();
 
             CreateMap<LogonModel, Logon>();
             CreateMap<RegisterModel, Register>();

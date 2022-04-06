@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BLL.Interfaces;
 using BLL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
 using PL.ViewModels.Games;
@@ -41,6 +42,7 @@ namespace PL.Controllers
         }
 
         // POST api/<GamesController>
+        [Authorize(Roles = "manager, admin")]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GameAddModel model)
         {
@@ -50,6 +52,7 @@ namespace PL.Controllers
         }
 
         // PUT api/<GamesController>
+        [Authorize(Roles = "manager, admin")]
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] GameUpdateModel model)
         {
@@ -59,6 +62,7 @@ namespace PL.Controllers
         }
 
         // DELETE api/<GamesController>/5
+        [Authorize(Roles = "manager, admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

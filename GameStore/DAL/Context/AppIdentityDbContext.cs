@@ -15,30 +15,54 @@ namespace DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            
+            string adminId = Guid.NewGuid().ToString();
 
-            const string ADMIN_ROLE_ID = "a18be9c0-aa65-4af8-bd17-00bd9344e575";
-            const string MANAGER_ROLE_ID = "ad376a8f-9eab-4bb9-9fca-30b01540f445";
-            const string USER_ROLE_ID = "7c9e6679-7425-40de-944b-e07fc1f90ae7";
+            string userRoleId = Guid.NewGuid().ToString();           
+            string managerRoleId = Guid.NewGuid().ToString();          
+            string adminRoleId = Guid.NewGuid().ToString();
 
             modelBuilder.Entity<IdentityRole>().HasData(new[]
             {
                 new IdentityRole
                 {
-                    Id = USER_ROLE_ID,
+                    Id = userRoleId,
                     Name = "user",
                     NormalizedName = "USER"
                 },
                 new IdentityRole
                 {
-                    Id = MANAGER_ROLE_ID,
+                    Id = managerRoleId,
                     Name = "manager",
                     NormalizedName = "MANAGER"
                 },
                 new IdentityRole
                 {
-                    Id = ADMIN_ROLE_ID,
+                    Id = adminRoleId,
                     Name = "admin",
                     NormalizedName = "ADMIN"
+                }
+            });
+
+            var hasher = new PasswordHasher<IdentityUser>();
+            modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+            {
+                Id = adminId,
+                UserName = "admin@gmail.com",
+                NormalizedUserName = "ADMIN@GMAIL.COM",
+                Email = "admin@gmail.com",
+                NormalizedEmail = "ADMIN@GMAIL.COM",
+                EmailConfirmed = false,
+                PasswordHash = hasher.HashPassword(null, "Admin123$"),
+                SecurityStamp = string.Empty
+            });
+
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new[]
+            {
+                new IdentityUserRole<string>
+                {
+                    RoleId = adminRoleId,
+                    UserId = adminId
                 }
             });
         }

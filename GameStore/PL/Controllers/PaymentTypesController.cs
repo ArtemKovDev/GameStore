@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BLL.Interfaces;
 using BLL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
@@ -40,6 +41,7 @@ namespace PL.Controllers
         }
 
         // POST api/<PaymentTypesController>
+        [Authorize(Roles = "manager, admin")]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] PaymentTypeAddModel model)
         {
@@ -49,6 +51,7 @@ namespace PL.Controllers
         }
 
         // PUT api/<PaymentTypesController>
+        [Authorize(Roles = "manager, admin")]
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] PaymentTypeUpdateModel model)
         {
@@ -58,6 +61,7 @@ namespace PL.Controllers
         }
 
         // DELETE api/<PaymentTypesController>/5
+        [Authorize(Roles = "manager, admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

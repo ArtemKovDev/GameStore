@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BLL.Interfaces;
 using BLL.Models.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,7 @@ namespace PL.Controllers
             return await _roleService.GetRoles(userName);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpPost("assignUserToRole")]
         public async Task<IActionResult> AssignUserToRole(UserRoleModel model)
         {

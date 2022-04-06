@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BLL.Interfaces;
 using BLL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
@@ -15,6 +16,7 @@ namespace PL.Controllers
 {
     [CustomExceptionFilter]
     [ModelStateActionFilter]
+    [Authorize(Roles = "manager, admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class GameImagesController : ControllerBase

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BLL.Interfaces;
 using BLL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
@@ -13,6 +14,7 @@ namespace PL.Controllers
 {
     [CustomExceptionFilter]
     [ModelStateActionFilter]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserInfoController : ControllerBase
@@ -30,7 +32,7 @@ namespace PL.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetUserCredentials()
+        public IActionResult Get()
         {
             var user = _registeredUserService.GetAll().SingleOrDefault(u => u.UserName == User.Identity.Name);
             return Ok(user);
@@ -39,7 +41,7 @@ namespace PL.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UserUpdateModel model)
         {
-            if(model.UserName == User.Identity.Name)
+            if (model.UserName == User.Identity.Name)
             {
                 var user = _mapper.Map<UserUpdateModel, RegisteredUserDto>(model);
                 await _registeredUserService.UpdateAsync(user);
