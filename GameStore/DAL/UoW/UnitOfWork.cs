@@ -2,6 +2,7 @@
 using DAL.Interfaces;
 using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 
 namespace DAL.UoW
@@ -106,6 +107,32 @@ namespace DAL.UoW
         public Task<int> SaveAsync()
         {
             return db.SaveChangesAsync();
+        }
+
+        private bool isDisposed;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!isDisposed)
+            {
+                if (disposing)
+                {
+                    db.Dispose();
+                }
+
+                isDisposed = true;
+            }
+        }
+
+        ~UnitOfWork()
+        {
+            Dispose(disposing: false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }
