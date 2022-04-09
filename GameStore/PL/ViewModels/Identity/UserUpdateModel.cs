@@ -19,7 +19,6 @@ namespace PL.ViewModels.Identity
         [Required(ErrorMessage = "LastName is required")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "ImageUrl is required")]
         public string ImageUrl { get; set; }
     }
 }

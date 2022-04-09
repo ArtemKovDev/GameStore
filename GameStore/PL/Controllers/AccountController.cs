@@ -65,9 +65,11 @@ namespace PL.Controllers
 
             if (user is null) return Unauthorized(new AuthResponseModel { ErrorMessage = "Invalid Authentication" });
 
+            var registeredUser = _registeredUserService.GetAll().SingleOrDefault(u => u.UserName == user.UserName);
+
             var roles = await _roleService.GetRoles(user);
 
-            var token = JwtHelper.GenerateJwt(user, roles, _jwtSettings);
+            var token = JwtHelper.GenerateJwt(user, registeredUser, roles, _jwtSettings);
 
             return Ok(new AuthResponseModel { IsAuthSuccessful = true, Token = token });
         }

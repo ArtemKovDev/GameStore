@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PL.Filters;
 using PL.ViewModels.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace PL.Controllers
@@ -40,15 +42,24 @@ namespace PL.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UserUpdateModel model)
         {
-            if (model.UserName == User.Identity.Name)
+            if (User.Identity is ClaimsIdentity identity)
             {
-                var user = _mapper.Map<UserUpdateModel, RegisteredUserDto>(model);
-                await _registeredUserService.UpdateAsync(user);
-                return Ok(user);
+                var registeredUserId = int.Parse(identity.FindFirst("RegisteredUserId").Value);
+
+                if (model.Id == registeredUserId && model.UserName == User.Identity.Name)
+                {
+                    var user = _mapper.Map<UserUpdateModel, RegisteredUserDto>(model);
+                    await _registeredUserService.UpdateAsync(user);
+                    return Ok(user);
+                }
+                else
+                {
+                    return StatusCode(403);
+                }
             }
             else
             {
-                return StatusCode(403);
+                return BadRequest();
             }
         }
 
