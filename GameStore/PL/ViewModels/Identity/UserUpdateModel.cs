@@ -10,6 +10,9 @@ namespace PL.ViewModels.Identity
         [Required(ErrorMessage = "UserName is required")]
         public string UserName { get; set; }
 
+        [Required(ErrorMessage = "Email is required.")]
+        public string Email { get; set; }
+
         [Required(ErrorMessage = "FirstName is required")]
         public string FirstName { get; set; }
 

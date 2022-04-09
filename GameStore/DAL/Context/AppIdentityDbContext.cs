@@ -46,8 +46,8 @@ namespace DAL.Context
             modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
             {
                 Id = adminId,
-                UserName = "admin@gmail.com",
-                NormalizedUserName = "ADMIN@GMAIL.COM",
+                UserName = "SamHyde",
+                NormalizedUserName = "SAMHYDE",
                 Email = "admin@gmail.com",
                 NormalizedEmail = "ADMIN@GMAIL.COM",
                 EmailConfirmed = false,

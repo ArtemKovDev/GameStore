@@ -23,7 +23,7 @@ namespace BLL.Services
 
         public async Task AddAsync(RegisteredUserDto model)
         {
-            if (model.UserName == "" || model.FirstName == "" || model.LastName == "")
+            if (model.UserName == "" || model.Email == "" || model.FirstName == "" || model.LastName == "")
             {
                 throw new ServiceException(string.Join(';', "Model is not valid"));
             }
@@ -53,7 +53,7 @@ namespace BLL.Services
 
         public async Task UpdateAsync(RegisteredUserDto model)
         {
-            if (model.UserName == "" || model.FirstName == "" || model.LastName == "")
+            if (model.UserName == "" || model.Email == "" || model.FirstName == "" || model.LastName == "")
             {
                 throw new ServiceException(string.Join(';', "Model is not valid"));
             }

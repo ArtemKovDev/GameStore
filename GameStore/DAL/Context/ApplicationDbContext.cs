@@ -24,10 +24,17 @@ namespace DAL.Context
             modelBuilder.Entity<RegisteredUser>().HasData(new RegisteredUser()
             {
                 Id = 1,
-                UserName = "admin@gmail.com",
-                FirstName = "Admin",
-                LastName = "First",
+                UserName = "SamHyde",
+                Email = "admin@gmail.com",
+                FirstName = "Sam",
+                LastName = "Hyde",
                 ImageUrl = null
+            });
+
+            modelBuilder.Entity<PaymentType>().HasData(new PaymentType[]
+            {
+                new PaymentType(){ Id = 1, Name = "Card"},
+                new PaymentType(){ Id = 2, Name = "Cash"}
             });
         }
     }

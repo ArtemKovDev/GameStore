@@ -19,7 +19,7 @@ namespace BLL.Services
         {
             var result = await _userManager.CreateAsync(new IdentityUser
             {
-                Email = user.UserName,
+                Email = user.Email,
                 UserName = user.UserName,
             }, user.Password);
 
