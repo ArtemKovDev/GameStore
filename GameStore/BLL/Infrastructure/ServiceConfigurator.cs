@@ -21,6 +21,7 @@ namespace BLL.Infrastructure
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IRegisteredUserService, RegisteredUserService>();
+            services.AddScoped<IGameSearchService, GameSearchService>();
         }
     }
 }
