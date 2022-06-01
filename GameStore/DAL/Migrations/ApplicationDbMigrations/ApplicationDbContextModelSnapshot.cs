@@ -184,6 +184,18 @@ namespace DAL.Migrations.ApplicationDbMigrations
                     b.HasKey("Id");
 
                     b.ToTable("PaymentTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Card"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Cash"
+                        });
                 });
 
             modelBuilder.Entity("DAL.Entities.RegisteredUser", b =>
@@ -192,6 +204,9 @@ namespace DAL.Migrations.ApplicationDbMigrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -208,6 +223,16 @@ namespace DAL.Migrations.ApplicationDbMigrations
                     b.HasKey("Id");
 
                     b.ToTable("RegisteredUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "admin@gmail.com",
+                            FirstName = "Sam",
+                            LastName = "Hyde",
+                            UserName = "SamHyde"
+                        });
                 });
 
             modelBuilder.Entity("DAL.Entities.CartLine", b =>

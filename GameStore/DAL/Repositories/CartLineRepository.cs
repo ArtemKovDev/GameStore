@@ -1,10 +1,8 @@
-﻿using DAL.Entities;
+﻿using DAL.Context;
+using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repositories
@@ -12,7 +10,7 @@ namespace DAL.Repositories
     public class CartLineRepository
         : BaseRepository<CartLine>, ICartLineRepository
     {
-        public CartLineRepository(DbContext context) 
+        public CartLineRepository(ApplicationDbContext context)
             : base(context)
         {
 

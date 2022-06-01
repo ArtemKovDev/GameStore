@@ -44,6 +44,29 @@ namespace DAL.Migrations.AppIdentityDbMigrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "2fc87ce1-c496-41e3-ba62-f992ecb602dc",
+                            ConcurrencyStamp = "7d74e597-3ed3-4284-b717-e5aaed954252",
+                            Name = "user",
+                            NormalizedName = "USER"
+                        },
+                        new
+                        {
+                            Id = "bf5dc076-c594-4068-850a-353a39d5140b",
+                            ConcurrencyStamp = "8729d111-2686-422c-99d1-800f6c9466e2",
+                            Name = "manager",
+                            NormalizedName = "MANAGER"
+                        },
+                        new
+                        {
+                            Id = "0eee30e1-da42-4c80-9312-96b3f4a89997",
+                            ConcurrencyStamp = "a4967b28-b939-4585-890e-970dc91f30f9",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -133,6 +156,24 @@ namespace DAL.Migrations.AppIdentityDbMigrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0b52e6cf-8c47-442f-8e29-f2b753fa3ebf",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "49139f55-0467-49a8-aa9d-8839547726c3",
+                            Email = "admin@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@GMAIL.COM",
+                            NormalizedUserName = "SAMHYDE",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGgsV8BuK7wIkzQpkbLazIX6qiE4JCAXIyk7Y9l9JmGDqWqcpCaf3lx12sRJtUH32Q==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "SamHyde"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -194,6 +235,13 @@ namespace DAL.Migrations.AppIdentityDbMigrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "0b52e6cf-8c47-442f-8e29-f2b753fa3ebf",
+                            RoleId = "0eee30e1-da42-4c80-9312-96b3f4a89997"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

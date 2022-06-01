@@ -1,10 +1,8 @@
-﻿using DAL.Entities;
+﻿using DAL.Context;
+using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repositories
@@ -12,7 +10,7 @@ namespace DAL.Repositories
     public class RegisteredUserRepository
         : BaseRepository<RegisteredUser>, IRegisteredUserRepository
     {
-        public RegisteredUserRepository(DbContext context) 
+        public RegisteredUserRepository(ApplicationDbContext context)
             : base(context)
         {
 
