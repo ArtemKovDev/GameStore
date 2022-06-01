@@ -25,7 +25,7 @@ namespace BLL.Services
         {
             if (model.FirstName == "" || model.LastName == "" || model.Email == "" || model.Phone == "")
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var order = _mapper.Map<OrderDto, Order>(model);
@@ -55,7 +55,7 @@ namespace BLL.Services
         {
             if (model.FirstName == "" || model.LastName == "" || model.Email == "" || model.Phone == "")
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var order = _mapper.Map<OrderDto, Order>(model);

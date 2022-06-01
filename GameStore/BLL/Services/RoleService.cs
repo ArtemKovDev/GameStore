@@ -28,7 +28,7 @@ namespace BLL.Services
 
             if (user is null)
             {
-                throw new ServiceException(string.Join(';', "This user does not exist"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var userRoles = await GetRoles(user);
@@ -38,11 +38,11 @@ namespace BLL.Services
                 await _userManager.RemoveFromRolesAsync(user, userRoles.ToArray());
             }
 
-            var isRoleExist = _roleManager.Roles.Select(r => r.Name).ToList().Contains(userRole.Role, StringComparer.OrdinalIgnoreCase);
+            var isRoleExist = _roleManager.Roles.Select(r => r.Name).Contains(userRole.Role, StringComparer.OrdinalIgnoreCase);
 
             if (!isRoleExist)
             {
-                throw new ServiceException(string.Join(';', "This user role does not exist"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var result = await _userManager.AddToRoleAsync(user, userRole.Role.ToUpper());

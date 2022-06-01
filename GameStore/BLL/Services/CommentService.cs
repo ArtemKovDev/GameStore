@@ -25,7 +25,7 @@ namespace BLL.Services
         {
             if (model.CommentText == "")
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var comment = _mapper.Map<CommentDto, Comment>(model);
@@ -55,7 +55,7 @@ namespace BLL.Services
         {
             if (model.CommentText == "")
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var comment = _mapper.Map<CommentDto, Comment>(model);

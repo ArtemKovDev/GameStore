@@ -25,7 +25,7 @@ namespace BLL.Services
         {
             if (model.Name == "" || model.Description == "" || model.Price < 0)
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var game = _mapper.Map<GameDto, Game>(model);
@@ -55,7 +55,7 @@ namespace BLL.Services
         {
             if (model.Name == "" || model.Description == "" || model.Price < 0)
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var game = _mapper.Map<GameDto, Game>(model);

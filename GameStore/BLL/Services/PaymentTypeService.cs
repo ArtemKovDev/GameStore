@@ -25,7 +25,7 @@ namespace BLL.Services
         {
             if (model.Name == "")
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var paymentType = _mapper.Map<PaymentTypeDto, PaymentType>(model);

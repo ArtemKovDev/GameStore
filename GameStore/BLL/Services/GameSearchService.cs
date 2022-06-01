@@ -55,14 +55,14 @@ namespace BLL.Services
             }
             else
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
         }
 
         public IEnumerable<GameDto> GetGamesByGenre(int[] genreIds)
         {
             var games = _unitOfWork.GameRepository.GetAllWithDetails().ToList().
-                Where(gm => !genreIds.Except(gm.Genres.Select(g => g.GenreId)).Any());
+                Where(gm => genreIds.Intersect(gm.Genres.Select(g => g.GenreId)).Any());
 
             return _mapper.Map<List<Game>, List<GameDto>>(games.ToList());
         }

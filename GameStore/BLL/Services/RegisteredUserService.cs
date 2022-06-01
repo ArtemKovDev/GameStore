@@ -25,7 +25,7 @@ namespace BLL.Services
         {
             if (model.UserName == "" || model.Email == "" || model.FirstName == "" || model.LastName == "")
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var user = _mapper.Map<RegisteredUserDto, RegisteredUser>(model);
@@ -55,7 +55,7 @@ namespace BLL.Services
         {
             if (model.UserName == "" || model.Email == "" || model.FirstName == "" || model.LastName == "")
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var user = _mapper.Map<RegisteredUserDto, RegisteredUser>(model);

@@ -25,7 +25,7 @@ namespace BLL.Services
         {
             if (model.Quantity < 0)
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var cartLine = _mapper.Map<CartLineDto, CartLine>(model);
@@ -53,9 +53,9 @@ namespace BLL.Services
 
         public async Task UpdateAsync(CartLineDto model)
         {
-            if (model.Quantity < 0)
+            if (model.Quantity <= 0)
             {
-                throw new ServiceException(string.Join(';', "Model is not valid"));
+                throw new ServiceException("Model is not valid;");
             }
 
             var cartLine = _mapper.Map<CartLineDto, CartLine>(model);
